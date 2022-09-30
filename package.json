@@ -1,5 +1,6 @@
 {
-  "name": "selfCheckIn",
+  "name": "selfcheckin",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -7,11 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "Alvin Ashiatey <alvinashiatey@gmail.com> (https://www.alvinashiatey.com/)",
-  "license": "MIT",
-  "dependencies": {
-    "typescript": "^4.8.4",
-    "vite": "^3.1.4"
+  "devDependencies": {
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
   }
 }
