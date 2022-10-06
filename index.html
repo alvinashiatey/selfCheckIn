@@ -5,17 +5,37 @@
     <title>CCAM Self Check-In</title>
 </head>
 <body>
-<form name="events" netlify>
-    <label>
-        First Name:
-        <input name='F_Name' type='text'>
-    </label>
-    <label>
-        Last Name:
-        <input type='text' name='L_Name'>
-    </label>
-    <input type='submit' value='Submit'>
-</form>
-<script src="src/main.ts"></script>
+<main>
+    <div class="container">
+        <div class="inner-container">
+            <header>
+                <div class="detail">
+                    <h1>CCAM</h1>
+                    <p>Event Checkin</p>
+                </div>
+            </header>
+            <div class="wrapper">
+                <form name="events" >
+                    <div class="name_input">
+                        <label aria-label="First Name">
+                            <input name='First_Name' placeholder="First Name" type='text'>
+                        </label>
+                    </div>
+                    <div class="name_input">
+                        <label aria-label="Last Name">
+                            <input type='text' name='Last_Name' placeholder="Last Name">
+                        </label>
+                    </div>
+<!--                    <label for="date" aria-label="date">-->
+<!--                        <input type="date" name="date" id="date" hide>-->
+<!--                    </label>-->
+                    <input type='submit' value="Submit" id="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</main>
+<script src="src/main.ts" type="module"></script>
 </body>
 </html>
