@@ -1,11 +1,12 @@
 body {
   --animation-dur: 300ms;
-  --container-h: 25rem;
+  --container-h: 28rem;
   --container-r: 1rem;
   background: var(--primary-clr);
   color: var(--secondary-clr);
   width: 100vw;
   height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   font-size: 62.5%;
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
 

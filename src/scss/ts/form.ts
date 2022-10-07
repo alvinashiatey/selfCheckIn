@@ -11,6 +11,8 @@ function handleSubmit() {
 }
 
 function initialCheck () {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
     if (checkIfCompleted()) return addAnimateCssClass()
 }
 
