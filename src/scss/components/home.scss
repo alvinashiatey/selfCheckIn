@@ -1,11 +1,11 @@
 body {
   --animation-dur: 300ms;
-  --container-h: 20vh;
+  --container-h: 25rem;
   background: var(--primary-clr);
   color: var(--secondary-clr);
   width: 100vw;
   height: 100vh;
-  font-size: 18px;
+  font-size: 62.5%;
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
 
   main {
@@ -13,9 +13,11 @@ body {
     place-content: center;
     width: inherit;
     height: inherit;
+
     .container {
       width: 100%;
       font-size: 3rem;
+
       .inner-container {
         display: flex;
         width: 90vw;
@@ -24,9 +26,10 @@ body {
         gap: 0.25rem;
         padding: 1rem;
         justify-content: center;
-        border-radius: 0.25rem;
+        border-radius: 1rem;
+
         &.completed {
-          animation: var(--animation-dur) forwards flipOut cubic-bezier(.45,.46,1,.51);
+          animation: var(--animation-dur) forwards flipOut cubic-bezier(.45, .46, 1, .51);
         }
 
         header {
@@ -37,7 +40,7 @@ body {
           color: var(--primary-clr);
 
           .detail {
-            border-right: 3px gray dashed;
+            border-right: 2px gray dashed;
             padding-block-start: 0.5rem;
             padding-inline: 0.5rem;
           }
@@ -50,10 +53,12 @@ body {
           form {
             padding-inline: 0.2rem;
             font-size: 4rem;
+
             input {
               width: 100%;
               border: none;
-              &:not([type="submit"]){
+
+              &:not([type="submit"]) {
                 padding: 0.25rem;
                 margin-block-end: 0.25rem;
               }
@@ -63,7 +68,8 @@ body {
                 background: var(--primary-clr);
                 color: var(--secondary-clr);
                 cursor: pointer;
-                &:hover{
+
+                &:hover {
                   background: rgba(24, 24, 24, 0.67);
                 }
               }
@@ -71,7 +77,8 @@ body {
           }
         }
       }
-      .checked_in{
+
+      .checked_in {
         background: gold;
         border-radius: 0.25rem;
         height: var(--container-h);
@@ -86,9 +93,11 @@ body {
         border: 2px dashed var(--secondary-clr);
         transform: rotate3d(1, 0, 0, 90deg);
         position: absolute;
+
         &.completed {
           animation: var(--animation-dur) forwards flipIn cubic-bezier(.45, .46, 1, .51) var(--animation-dur);
         }
+
         p {
           z-index: 2;
         }
