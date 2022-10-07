@@ -1,5 +1,6 @@
 body {
   --animation-dur: 300ms;
+  --container-h: 20vh;
   background: var(--primary-clr);
   color: var(--secondary-clr);
   width: 100vw;
@@ -19,7 +20,7 @@ body {
       .inner-container {
         display: flex;
         width: 90vw;
-        height: 10rem;
+        height: var(--container-h);
         background: gold;
         gap: 0.25rem;
         padding: 1rem;
@@ -75,7 +76,7 @@ body {
       .checked_in{
         background: gold;
         border-radius: 0.25rem;
-        height: 10rem;
+        height: var(--container-h);
         width: 90vw;
         color: var(--primary-clr);
         text-transform: uppercase;
