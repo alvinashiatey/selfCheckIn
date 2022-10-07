@@ -1,6 +1,7 @@
 import "./scss/main.scss"
-import {handleSubmit} from "./scss/ts/form";
+import {handleSubmit, initialCheck} from "./scss/ts/form";
 
 window.onload = ():void=>{
+    initialCheck()
     handleSubmit()
 }

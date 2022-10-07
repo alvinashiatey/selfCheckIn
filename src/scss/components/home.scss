@@ -1,9 +1,11 @@
 body {
+  --animation-dur: 300ms;
   background: var(--primary-clr);
   color: var(--secondary-clr);
   width: 100vw;
   height: 100vh;
   font-size: 18px;
+  font-family: "Helvetica Neue", "Helvetica", sans-serif;
 
   main {
     display: grid;
@@ -17,11 +19,15 @@ body {
       .inner-container {
         display: flex;
         width: 90vw;
+        height: 10rem;
         background: gold;
         gap: 0.25rem;
         padding: 1rem;
         justify-content: center;
         border-radius: 0.25rem;
+        &.completed {
+          animation: var(--animation-dur) forwards flipOut cubic-bezier(.45,.46,1,.51);
+        }
 
         header {
           font-size: 1rem;
@@ -66,6 +72,43 @@ body {
           }
         }
       }
+      .checked_in{
+        background: gold;
+        border-radius: 0.25rem;
+        height: 10rem;
+        width: 90vw;
+        color: var(--primary-clr);
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        display: grid;
+        place-content: center;
+        font-size: 5vmin;
+        border: 2px dashed var(--secondary-clr);
+        transform: rotate3d(1, 0, 0, 90deg);
+        animation: var(--animation-dur) forwards flipIn cubic-bezier(.45,.46,1,.51) var(--animation-dur);
+        position: absolute;
+
+        p {
+          z-index: 2;
+        }
+      }
     }
+  }
+}
+
+@keyframes flipOut {
+  100% {
+    transform: rotate3d(1, 0, 0, -90deg);
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    position: relative;
+  }
+  100% {
+    transform: rotate3d(1, 0, 0, 0deg);
+    position: relative;
   }
 }
