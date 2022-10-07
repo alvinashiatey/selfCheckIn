@@ -62,7 +62,7 @@ function saveToLocalStorage(state:string) {
         date: date.toDateString()
     }
     localStorage.setItem("completed", JSON.stringify(save))
-    addCompletedToInnerContainer()
+    addAnimateCssClass()
 }
 
 function checkIfCompleted():boolean {
