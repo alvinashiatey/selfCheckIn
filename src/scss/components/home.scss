@@ -86,9 +86,10 @@ body {
         font-size: 5vmin;
         border: 2px dashed var(--secondary-clr);
         transform: rotate3d(1, 0, 0, 90deg);
-        animation: var(--animation-dur) forwards flipIn cubic-bezier(.45,.46,1,.51) var(--animation-dur);
         position: absolute;
-
+        &.completed {
+          animation: var(--animation-dur) forwards flipIn cubic-bezier(.45, .46, 1, .51) var(--animation-dur);
+        }
         p {
           z-index: 2;
         }

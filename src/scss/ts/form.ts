@@ -11,12 +11,11 @@ function handleSubmit() {
 }
 
 function initialCheck () {
-    console.log("here",checkIfCompleted() )
-    if (checkIfCompleted()) return addCompletedToInnerContainer()
+    if (checkIfCompleted()) return addAnimateCssClass()
 }
 
 async function handleFetch(firstName: HTMLInputElement, lastName: HTMLInputElement){
-    if (checkIfCompleted()) return addCompletedToInnerContainer();
+    if (checkIfCompleted()) return addAnimateCssClass();
     if (lastName.value.trim() === "" && firstName.value.trim() === "") return
     const url = "https://script.google.com/macros/s/AKfycbxijLYMObBtoW2ok1RfpNW8kbiaprJGs2-RGUgLVPSFtyfBAiAB8R07-EaeQApnZ7w/exec"
     const formData = new FormData();
@@ -34,10 +33,24 @@ async function handleFetch(firstName: HTMLInputElement, lastName: HTMLInputEleme
     }
 }
 
+function addAnimateCssClass(){
+    addCompletedToCheckedIn()
+    addCompletedToInnerContainer()
+}
+
+function addCompletedToCheckedIn() {
+    const checkInDiv = document.querySelector(".checked_in") as HTMLDivElement
+    addClassToDiv(checkInDiv, "completed")
+}
+
+function addClassToDiv(div: HTMLDivElement, cls: string) {
+    if (!div) return
+    div?.classList.add(cls)
+}
+
 function addCompletedToInnerContainer() {
     const completedInnerContainer = document.querySelector(".inner-container") as HTMLDivElement
-    if (!completedInnerContainer) return
-    completedInnerContainer?.classList.add("completed")
+    addClassToDiv(completedInnerContainer, "completed")
     animationEnd()
 }
 
