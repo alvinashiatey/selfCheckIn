@@ -13,10 +13,9 @@ body {
     place-content: center;
     width: inherit;
     height: inherit;
-
     .container {
       width: 100%;
-
+      font-size: 3rem;
       .inner-container {
         display: flex;
         width: 90vw;
@@ -31,7 +30,6 @@ body {
         }
 
         header {
-          font-size: 1rem;
           line-height: 140%;
           writing-mode: vertical-lr;
           padding-inline: 0.2rem;
@@ -51,7 +49,7 @@ body {
 
           form {
             padding-inline: 0.2rem;
-
+            font-size: 4rem;
             input {
               width: 100%;
               border: none;
