@@ -11,7 +11,7 @@
             <header>
                 <div class="detail">
                     <h1>CCAM</h1>
-                    <p>Event Checkin</p>
+                    <p>Event Check-in Form</p>
                 </div>
             </header>
             <div class="wrapper">
@@ -26,6 +26,11 @@
                             <input class="last" type='text' name='Last_Name' placeholder="Last Name" required>
                         </label>
                     </div>
+                    <div class="name_input">
+                        <label aria-label="Event Name">
+                            <input class="event" type='text' name='Event' placeholder="Event Name" required>
+                        </label>
+                    </div>
                     <input type='submit' value="Submit" id="submit">
                 </form>
 
@@ -34,7 +39,8 @@
         </div>
         <div class="checked_in">
             <p>
-                Checked in
+                Thanks <span id="first_name_pl"></span> <span id="last_name_pl"></span> for checking in to
+                <span id="event_name_pl"></span>
             </p>
         </div>
     </div>

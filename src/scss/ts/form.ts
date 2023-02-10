@@ -19,9 +19,14 @@ function initialCheck () {
 async function handleFetch(firstName: HTMLInputElement, lastName: HTMLInputElement){
     if (checkIfCompleted()) return addAnimateCssClass();
     if (lastName.value.trim() === "" && firstName.value.trim() === "") return
+    const eventNamePlaceholder = document.getElementById("event_name_pl") as HTMLSpanElement
+    const firstNamePlaceholder = document.getElementById("first_name_pl") as HTMLSpanElement
+    const lastNamePlaceholder = document.getElementById("last_name_pl") as HTMLSpanElement
     const url = "https://script.google.com/macros/s/AKfycbxijLYMObBtoW2ok1RfpNW8kbiaprJGs2-RGUgLVPSFtyfBAiAB8R07-EaeQApnZ7w/exec"
     const formData = new FormData();
-    [{k: "Last_Name", v: lastName.value.trim()}, {k: "First_Name", v: firstName.value.trim()}].forEach(value => formData.append(value.k, value.v))
+    // current time in hh:mm:ss
+    const time = new Date().toLocaleTimeString();
+    [{k: "Last_Name", v: lastName.value.trim()}, {k: "First_Name", v: firstName.value.trim()}, {k:"Current_Time", v:time}].forEach(value => formData.append(value.k, value.v))
     try {
         const {result} = await fetch(url, {
             method: "POST",
@@ -30,6 +35,9 @@ async function handleFetch(firstName: HTMLInputElement, lastName: HTMLInputEleme
             .then(res => res.json())
         resetInputValues (firstName, lastName)
         saveToLocalStorage(result)
+        firstNamePlaceholder.textContent = firstName.value.trim()
+        lastNamePlaceholder.textContent = lastName.value.trim()
+        eventNamePlaceholder.textContent = lastName.value.trim()
     } catch (err: any){
         console.log(err["message"])
     }
