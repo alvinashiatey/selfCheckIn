@@ -5,8 +5,9 @@ function handleSubmit() {
         e.preventDefault()
         const firstName = document.querySelector(".first") as HTMLInputElement
         const lastName = document.querySelector(".last") as HTMLInputElement
+        const eventName = document.querySelector(".event") as HTMLInputElement
         if (!firstName && !lastName) return
-        await handleFetch(firstName, lastName)
+        await handleFetch(firstName, lastName, eventName)
     })
 }
 
@@ -16,7 +17,7 @@ function initialCheck () {
     if (checkIfCompleted()) return addAnimateCssClass()
 }
 
-async function handleFetch(firstName: HTMLInputElement, lastName: HTMLInputElement){
+async function handleFetch(firstName: HTMLInputElement, lastName: HTMLInputElement, event:HTMLInputElement){
     if (checkIfCompleted()) return addAnimateCssClass();
     if (lastName.value.trim() === "" && firstName.value.trim() === "") return
     const eventNamePlaceholder = document.getElementById("event_name_pl") as HTMLSpanElement
@@ -26,7 +27,7 @@ async function handleFetch(firstName: HTMLInputElement, lastName: HTMLInputEleme
     const formData = new FormData();
     // current time in hh:mm:ss
     const time = new Date().toLocaleTimeString();
-    [{k: "Last_Name", v: lastName.value.trim()}, {k: "First_Name", v: firstName.value.trim()}, {k:"Current_Time", v:time}].forEach(value => formData.append(value.k, value.v))
+    [{k: "Last_Name", v: lastName.value.trim()}, {k: "First_Name", v: firstName.value.trim()}, {k:"Event", v:event.value.trim()}, {k:"Current_Time", v:time}].forEach(value => formData.append(value.k, value.v))
     try {
         const {result} = await fetch(url, {
             method: "POST",
