@@ -34,11 +34,11 @@ async function handleFetch(firstName: HTMLInputElement, lastName: HTMLInputEleme
             body: formData,
         })
             .then(res => res.json())
-        resetInputValues (firstName, lastName)
-        saveToLocalStorage(result)
         firstNamePlaceholder.textContent = firstName.value.trim()
         lastNamePlaceholder.textContent = lastName.value.trim()
         eventNamePlaceholder.textContent = lastName.value.trim()
+        resetInputValues (firstName, lastName)
+        saveToLocalStorage(result)
     } catch (err: any){
         console.log(err["message"])
     }
